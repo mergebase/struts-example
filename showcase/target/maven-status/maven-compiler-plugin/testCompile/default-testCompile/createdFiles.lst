@@ -1,0 +1,14 @@
+it/org/apache/struts2/showcase/ITBaseTest.class
+it/org/apache/struts2/showcase/FreeMarkerManagerTest.class
+it/org/apache/struts2/showcase/ComponentTagExampleTest.class
+it/org/apache/struts2/showcase/ConversionTest.class
+it/org/apache/struts2/showcase/ExecAndWaitTest.class
+it/org/apache/struts2/showcase/FileDownloadTest.class
+it/org/apache/struts2/showcase/ActionTagExampleTest.class
+it/org/apache/struts2/showcase/ParameterUtils.class
+it/org/apache/struts2/showcase/ActionChainingTest.class
+it/org/apache/struts2/showcase/staticcontent/StaticContentTest.class
+it/org/apache/struts2/showcase/ValidationTest.class
+org/apache/struts2/showcase/filedownload/FileDownloadActionTest.class
+it/org/apache/struts2/showcase/CRUDTest.class
+it/org/apache/struts2/showcase/UITagExampleTest.class
