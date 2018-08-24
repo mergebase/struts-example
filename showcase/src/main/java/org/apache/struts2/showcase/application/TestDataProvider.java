@@ -23,10 +23,12 @@ package org.apache.struts2.showcase.application;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.struts2.showcase.dao.EmployeeDao;
+import org.apache.struts2.showcase.dao.LoginDao;
 import org.apache.struts2.showcase.dao.SkillDao;
 import org.apache.struts2.showcase.exception.StorageException;
 import org.apache.struts2.showcase.model.Employee;
 import org.apache.struts2.showcase.model.Skill;
+import org.apache.struts2.showcase.model.User;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,6 +59,8 @@ public class TestDataProvider implements Serializable, InitializingBean {
 			"Master"
 	};
 
+	public static final User ADMIN = new User("admin", "admin");
+
 	private static final Skill[] TEST_SKILLS = {
 			new Skill("WW-SEN", "Struts Senior Developer"),
 			new Skill("WW-JUN", "Struts Junior Developer"),
@@ -74,7 +78,14 @@ public class TestDataProvider implements Serializable, InitializingBean {
 	private SkillDao skillDao;
 
 	@Autowired
+	private LoginDao loginDao;
+
+	@Autowired
 	private EmployeeDao employeeDao;
+
+	protected void addTestUsers() {
+		loginDao.addUser(ADMIN);
+	}
 
 	protected void addTestSkills() {
 		try {
@@ -105,6 +116,7 @@ public class TestDataProvider implements Serializable, InitializingBean {
 	protected void addTestData() {
 		addTestSkills();
 		addTestEmployees();
+		addTestUsers();
 	}
 
 	public void afterPropertiesSet() throws Exception {

@@ -268,7 +268,6 @@
 
     <div class="pull-right">
         <div>
-            <s:action var="dateAction" name="date" namespace="/" executeResult="true"/>
         </div>
         <!-- end branding -->
 
