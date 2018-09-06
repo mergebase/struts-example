@@ -2,38 +2,36 @@ package org.apache.struts2.showcase.model;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+
 
 public class CreditReport implements IdEntity {
 
-    private Long reportId;
+    private int reportId;
     private Date dateOfReport;
     private String givenName;
     private String surname;
     private String address;
-    private Long birthYear;
-    private Long birthDay;
-    private Long birthMonth;
+    private String birthYear;
+    private String birthDay;
+    private String birthMonth;
     private String socialInsuranceNumber;
-    private int creditRating;
-    private float salary;
-    private List<LoanOrCredit> loansAndCredit;
+    private String creditRating;
+    private String salary;
 
 
     public CreditReport()
     { }
 
-    public CreditReport(Long reportId,
+    public CreditReport(int reportId,
                         String firstName,
                         String lastName,
                         String address,
-                        Long birthDay,
-                        Long birthMonth,
-                        Long birthYear,
+                        String birthDay,
+                        String birthMonth,
+                        String birthYear,
                         String socialInsuranceNumber,
-                        int creditRating,
-                        float salary,
-                        List<LoanOrCredit> loanOrCredits)
+                        String creditRating,
+                        String salary)
     {
         this.reportId = reportId;
         this.givenName = firstName;
@@ -45,7 +43,6 @@ public class CreditReport implements IdEntity {
         this.socialInsuranceNumber = socialInsuranceNumber;
         this.creditRating = creditRating;
         this.salary = salary;
-        this.loansAndCredit = loanOrCredits;
     }
 
     @Override
@@ -55,14 +52,14 @@ public class CreditReport implements IdEntity {
 
     @Override
     public void setId(Serializable id) {
-        setReportId((Long) id);
+        setReportId((int) id);
     }
 
-    public Long getReportId() {
+    public int getReportId() {
         return reportId;
     }
 
-    public void setReportId(Long reportId) {
+    public void setReportId(int reportId) {
         this.reportId = reportId;
     }
 
@@ -98,27 +95,27 @@ public class CreditReport implements IdEntity {
         this.address = address;
     }
 
-    public Long getBirthYear() {
+    public String getBirthYear() {
         return birthYear;
     }
 
-    public void setBirthYear(Long birthYear) {
+    public void setBirthYear(String birthYear) {
         this.birthYear = birthYear;
     }
 
-    public Long getBirthDay() {
+    public String getBirthDay() {
         return birthDay;
     }
 
-    public void setBirthDay(Long birthDay) {
+    public void setBirthDay(String birthDay) {
         this.birthDay = birthDay;
     }
 
-    public Long getBirthMonth() {
+    public String getBirthMonth() {
         return birthMonth;
     }
 
-    public void setBirthMonth(Long birthMonth) {
+    public void setBirthMonth(String birthMonth) {
         this.birthMonth = birthMonth;
     }
 
@@ -130,27 +127,21 @@ public class CreditReport implements IdEntity {
         this.socialInsuranceNumber = socialInsuranceNumber;
     }
 
-    public int getCreditRating() {
+    public String getCreditRating() {
         return creditRating;
     }
 
-    public void setCreditRating(int creditRating) {
+    public void setCreditRating(String creditRating) {
         this.creditRating = creditRating;
     }
 
-    public float getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(float salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 
-    public List<LoanOrCredit> getLoansAndCredit() {
-        return loansAndCredit;
     }
 
-    public void setLoansAndCredit(List<LoanOrCredit> loansAndCredit) {
-        this.loansAndCredit = loansAndCredit;
-    }
-}

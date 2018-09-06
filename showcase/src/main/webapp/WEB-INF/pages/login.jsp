@@ -7,15 +7,18 @@
     <title>Login</title>
 </head>
 <body>
-<s:actionerror />
-<s:form namespace="/" action="index.action" method="post">
-    <s:hidden name="user_login_attempt" value="%{'1'}" />
-    <s:textfield name="username" label="Username" />
-    <s:password name="password" label="Password" />
-    <s:submit value="Login" align="center">
-        <s:param name="colspan" value="%{2}" />
-        <s:param name="align" value="%{'center'}" />
-    </s:submit>
-</s:form>
+<div class="container" style="max-width:600px">
+    <s:actionerror />
+    <s:form namespace="/" action="index.action" method="post">
+        <s:hidden name="user_login_attempt" value="%{'1'}" />
+        <s:textfield name="username" label="Username" />
+        <s:password name="password" label="Password" />
+        <s:submit value="Login" align="center">
+            <s:param name="colspan" value="%{2}" />
+            <s:param name="align" value="%{'center'}" />
+        </s:submit>
+    </s:form>
+</div>
+
 </body>
 </html>

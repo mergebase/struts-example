@@ -1,6 +1,7 @@
 package org.apache.struts2.showcase.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
 import org.apache.struts2.showcase.dao.CreditReportDao;
 import org.apache.struts2.showcase.dao.Dao;
 import org.apache.struts2.showcase.model.CreditReport;
@@ -9,22 +10,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
 
-public class CreditReportAction extends AbstractCRUDAction {
+public class CreditReportAction extends AbstractCRUDAction implements ModelDriven<CreditReport> {
 
     @Autowired
     private CreditReportDao creditReportDao;
 
-    public Long getReportId() {
+    public int getReportId() {
         return reportId;
     }
 
-    public void setReportId(Long reportId) {
+    public void setReportId(int reportId) {
         this.reportId = reportId;
     }
 
-    private Long reportId;
+    private int reportId = 0;
     private CreditReport creditReport;
+
+
 
 
     public String execute() throws Exception {
@@ -35,12 +41,30 @@ public class CreditReportAction extends AbstractCRUDAction {
         return super.execute();
     }
 
-    public String save() throws Exception {
+    public String add() throws Exception {
         if(creditReport != null) {
-            setReportId((Long) creditReportDao.merge(getCreditReport()));
+            if(creditReport.getReportId() == 0)
+            {
+                Random random = new Random();
+                int id = random.nextInt();
+                creditReport.setReportId(id);
+            }
+
+            Date date = new Date();
+            creditReport.setDateOfReport(date);
+
+            CreditReport r = (CreditReport) creditReportDao.create(getCreditReport());
+
+            setReportId(r.getReportId());
 
         }
         return SUCCESS;
+    }
+
+
+    @Override
+    public CreditReport getModel() {
+        return new CreditReport();
     }
 
     public CreditReport getCreditReport() {
@@ -55,12 +79,12 @@ public class CreditReportAction extends AbstractCRUDAction {
 
     @Override
     protected Dao getDao() {
-        return null;
+        return creditReportDao;
     }
 
     @Override
     public Collection getAvailableItems() {
-        return super.getAvailableItems();
+        return creditReportDao.findAll();
     }
 
     @Override

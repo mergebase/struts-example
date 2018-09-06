@@ -40,6 +40,9 @@ public class LoginInterceptor implements Interceptor {
 
         Map sessionMap = context.getSession();
 
+        String queryString = request.getQueryString();
+        sessionMap.put("savedUrl", request.getRequestURI()+(queryString==null?"":("?"+queryString)));
+
         try {
             Object user = sessionMap.get(USER_HANDLE);
 
@@ -51,7 +54,7 @@ public class LoginInterceptor implements Interceptor {
                 {
                     if(processLoginAttempt(request, sessionMap)) {
 
-                        return "login-success";
+                        return actionInvocation.invoke();
                     } else {
                         Object action = actionInvocation.getAction();
 

@@ -62,6 +62,7 @@
                 <interceptor-ref name="login"/>
                 <interceptor-ref name="checkbox" />
                 <interceptor-ref name="params" />
+                <interceptor-ref name="fileUpload"/>
                 <interceptor-ref name="staticParams" />
                 <interceptor-ref name="defaultStack" />
             </interceptor-stack>
@@ -75,16 +76,25 @@
         </global-results>
 
         <action name="showcase">
+            <interceptor-ref name="fileUpload"/>
             <interceptor-ref name="login"/>
             <result>/WEB-INF/showcase.jsp</result>
         </action>
 
         <action name="create" class="org.apache.struts2.showcase.action.CreditReportAction">
+            <interceptor-ref name="fileUpload"/>
             <interceptor-ref name="login"/>
             <result>/WEB-INF/creditmanager/createCreditReport.jsp</result>
         </action>
 
-        <action name="viewCreditReport">
+        <action name="add" class="org.apache.struts2.showcase.action.CreditReportAction" method="add">
+            <interceptor-ref name="params"/>
+            <result>/WEB-INF/creditmanager/createCreditReport.jsp</result>
+        </action>
+
+        <action name="view" class="org.apache.struts2.showcase.action.CreditReportAction" method="list">
+            <interceptor-ref name="login"/>
+            <interceptor-ref name="crudStack"/>
             <result>/WEB-INF/creditmanager/viewCreditReport.jsp</result>
         </action>
 

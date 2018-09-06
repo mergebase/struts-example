@@ -1,4 +1,4 @@
-reatereate<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: delan
@@ -12,8 +12,10 @@ reatereate<%@ taglib prefix="s" uri="/struts-tags" %>
     <title>Title</title>
 </head>
 <body>
-<div class="container-fluid">
+<div class="container">
     <div class="row">
+        <div class="col-md-12">
+            <h1>Create Report Data Entry</h1>
        <s:form  name="addCreditReport" action="add">
            <s:textfield label="report ID" name="creditReport.reportId"/>
            <s:textfield label="Given Name(s)" name="creditReport.givenName"/>
@@ -24,12 +26,12 @@ reatereate<%@ taglib prefix="s" uri="/struts-tags" %>
            <s:textfield label="Birth Day" name="creditReport.birthDay"/>
            <s:textfield label="Salary" name="creditReport.salary"/>
            <s:textfield label="Social Insurance Number" name="creditReport.socialInsuranceNumber"/>
+           <s:textfield label="Credit Rating" name="creditReport.creditRating"/>
+           <s:submit value="Submit"  cssClass="btn btn-primary"/>
        </s:form>
+        </div>
 
     </div>
-    <s:iterator value="creditAndLoans">
-
-    </s:iterator>
 
 
 </div>
