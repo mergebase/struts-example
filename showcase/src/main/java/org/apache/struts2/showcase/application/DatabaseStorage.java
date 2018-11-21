@@ -41,7 +41,7 @@ public class DatabaseStorage {
             return (IdEntity) list.get(0);
 
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         return null;
     }
@@ -58,6 +58,7 @@ public class DatabaseStorage {
 
             tx.commit();
         } catch (Exception e) {
+            e.printStackTrace();
             return object;
         }
         return object;
@@ -76,6 +77,7 @@ public class DatabaseStorage {
 
             tx.commit();
         } catch (Exception e) {
+            e.printStackTrace();
             return object;
         }
         return object;
@@ -92,6 +94,7 @@ public class DatabaseStorage {
 
             tx.commit();
         } catch (Exception e) {
+            e.printStackTrace();
             return object;
         }
         return object;
@@ -108,6 +111,7 @@ public class DatabaseStorage {
 
             tx.commit();
         } catch (Exception e) {
+            e.printStackTrace();
             return 1;
         }
         return 0;
@@ -124,6 +128,7 @@ public class DatabaseStorage {
 
             tx.commit();
         } catch (Exception e) {
+            e.printStackTrace();
             return 0;
         }
         return 1;
@@ -145,7 +150,7 @@ public class DatabaseStorage {
             return list;
 
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
         return null;
 

@@ -13,9 +13,9 @@
             jdbc:postgresql://localhost:5432/struts
         </property>
 
-        <property name = "hibernate.connection.username">postgres</property>
+        <property name = "hibernate.connection.username">struts</property>
 
-        <property name = "hibernate.connection.password">postgres</property>
+        <property name = "hibernate.connection.password">demo</property>
 
         <property name = "hibernate.connection.pool_size">10</property>
 
