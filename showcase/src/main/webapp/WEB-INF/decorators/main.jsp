@@ -1,4 +1,5 @@
 <%@ page import="org.apache.struts2.result.StrutsResultSupport" %>
+<%@ page import="org.apache.struts2.showcase.interceptor.LoginInterceptor" %>
 <!DOCTYPE html>
 <%@ page
         language="java"
@@ -33,6 +34,8 @@
 <%@taglib prefix="page" uri="http://www.opensymphony.com/sitemesh/page" %>
 <%@taglib prefix="s" uri="/struts-tags" %>
 
+<s:url var="current" includeParams="none" escapeAmp="false"/>
+
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -40,11 +43,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Struts2 Showcase for Apache Struts Project">
     <meta name="author" content="The Apache Software Foundation">
+    <title><%= request.getAttribute("pageTitle") %></title>
 
-    <title><decorator:title default="Struts2 Showcase"/></title>
-
-    <link href="<s:url value='/styles/bootstrap.css' encode='false' includeParams='none'/>" rel="stylesheet" type="text/css" media="all">
-    <link href="<s:url value='/styles/main.css' encode='false' includeParams='none'/>" rel="stylesheet" type="text/css" media="all"/>
+    <link href="<s:url value='/styles/bootstrap.css' encode='false' includeParams='none'/>" rel="stylesheet"
+          type="text/css" media="all">
+    <link href="<s:url value='/styles/main.css' encode='false' includeParams='none'/>" rel="stylesheet" type="text/css"
+          media="all"/>
 
     <script src="<s:url value='/js/jquery-2.1.4.min.js' encode='false' includeParams='none'/>"></script>
     <script src="<s:url value='/js/bootstrap.min.js' encode='false' includeParams='none'/>"></script>
@@ -70,70 +74,68 @@
 
 <body id="page-home" onload="prettyPrint();">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
+<header id="header" class="header">
+    <div class="mbTopBanner">&nbsp;</div>
+</header>
 
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <s:url var="home" action="create" namespace="/" includeContext="false" />
-            <s:a value="%{home}" cssClass="navbar-brand">
-                Credit Report Data Entry
-            </s:a>
-        </div>
+<div id="pageTitle">
+<h1><%= request.getAttribute("pageTitle") %></h1>
+</div>
 
-        <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><s:a value="%{home}"><i class="glyphicon glyphicon-home"></i> Home</s:a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="glyphicon glyphicon-cog"></i> Credit Reports
-                            <b class="caret"></b></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><s:a action="create" namespace="/"
-                                     includeParams="none">Add Credit Reports</s:a></li>
-                            <li><s:a action="view" namespace="/"
-                                     includeParams="none">View reports</s:a></li>
-                        </ul>
-                    </li>
+<table cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td width="250px" style="vertical-align: top;">
+<nav id='navbar' class="navbar" style="padding-left: 4.5em;">
 
-                </ul>
+    <div class="navBody">
+<%
+    if (LoginInterceptor.isLoggedIn(session)) {
+%>
+        <h2 style="color: #2d70b8;" <s:if test="#current.contains('index.action')"> class="current" </s:if>>
+            <s:a action="index" namespace="/" includeParams="none">Home</s:a>
+        </h2>
 
-
-        </div>
+        <h2 style="padding-top: 1.9em; padding-bottom: 0.3em;">
+            <s:a action="view" namespace="/" includeParams="none">Credit Reports</s:a>
+        </h2>
+        <ul>
+            <li <s:if test="#current.contains('create.action')"> class="current" </s:if>>
+                <s:a action="create" namespace="/"
+                     includeParams="none">Add Credit Report</s:a>
+            </li>
+            <li <s:if test="#current.contains('view.action')"> class="current" </s:if>>
+                <s:a action="view" namespace="/"
+                     includeParams="none">View Credit Reports</s:a>
+            </li>
+        </ul>
+<%
+    }
+%>
     </div>
 </nav>
-
+</td>
+<td style="vertical-align: top; padding-right: 4.5em;">
 <decorator:body/>
+</td>
+</tr>
+</table>
 
-
-<hr>
-
-<footer id="footer" class="footer">
-
-    <div class="pull-right">
-        <div>
-        </div>
-        <!-- end branding -->
-
-        <div>
-            <a href="http://struts.apache.org">
-                <img src="<s:url value='/img/struts-power.gif' encode='false' includeParams='none'/>"
-                     alt="Powered by Struts"/>
-            </a>
-        </div>
-        <!-- end search -->
-    </div>
-
-    <div class="pull-left">
-        Copyright &copy; 2018
-        <a href="http://www.mergebase.com">
-            Mergebase
+<div id="footer" class="footer pull-left">
+    <div>
+        <a href="http://struts.apache.org">
+            <img src="<s:url value='/img/struts-power.gif' encode='false' includeParams='none'/>"
+                 alt="Powered by Struts"/>
         </a>
     </div>
-</footer>
+    &nbsp;<br/>
+    Copyright &copy; 2019
+    <a href="https://mergebase.com">
+        Mergebase
+    </a>
+    <br/>&nbsp;<br/>&nbsp;<br/>
+    <p style="height: 2em;"></p>
+</div>
+
+
 </body>
 </html>

@@ -1,39 +1,24 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: delan
-  Date: 20/08/18
-  Time: 11:24 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ page contentType="text/html;charset=UTF-8" language="java" pageEncoding="UTF-8" %>
+<%
+
+    if ("POST".equalsIgnoreCase(request.getMethod())) {
+        response.sendRedirect("./add.action?success=true");
+    }
+
+    request.setAttribute("pageTitle", "Add Credit Report");
+%>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Create Report Data Entry</h1>
-       <s:form  name="addCreditReport" action="add">
-           <s:textfield label="report ID" name="creditReport.reportId"/>
-           <s:textfield label="Given Name(s)" name="creditReport.givenName"/>
-           <s:textfield label="Surname" name="creditReport.surname"/>
-           <s:textfield label="Address" name="creditReport.address"/>
-           <s:textfield label="Birth Year" name="creditReport.birthYear"/>
-           <s:textfield label="Birth Month" name="creditReport.birthMonth"/>
-           <s:textfield label="Birth Day" name="creditReport.birthDay"/>
-           <s:textfield label="Salary" name="creditReport.salary"/>
-           <s:textfield label="Social Insurance Number" name="creditReport.socialInsuranceNumber"/>
-           <s:textfield label="Credit Rating" name="creditReport.creditRating"/>
-           <s:submit value="Submit"  cssClass="btn btn-primary"/>
-       </s:form>
-        </div>
-
-    </div>
-
-
+    <s:form name="addCreditReport" action="add" method="POST">
+        <s:textfield tabindex="5" label="Given Name(s)" name="creditReport.givenName"/>
+        <s:textfield tabindex="5" label="Surname" name="creditReport.surname"/>
+        <s:textfield tabindex="5" label="Address" name="creditReport.address"/>
+        <s:textfield tabindex="5" label="Birth Year" name="creditReport.birthYear"/>
+        <s:textfield tabindex="5" label="Birth Month" name="creditReport.birthMonth"/>
+        <s:textfield tabindex="5" label="Birth Day" name="creditReport.birthDay"/>
+        <s:textfield tabindex="5" label="Salary" name="creditReport.salary"/>
+        <s:textfield tabindex="5" label="Social Insurance Number" name="creditReport.socialInsuranceNumber"/>
+        <s:textfield tabindex="5" label="Credit Rating" name="creditReport.creditRating"/>
+        <s:submit tabindex="5" value="Submit" cssClass="btn btn-primary"/>
+    </s:form>
 </div>
-</body>
-</html>

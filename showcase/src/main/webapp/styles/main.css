@@ -1,10 +1,23 @@
-body {
-	padding-top: 60px;
-	padding-bottom: 40px;
-}
-.sidebar-nav {
-	padding: 9px 0;
-}
+
+body, table, div, span, head, h2, h3 { padding: 0; border: 0; margin: 0; }
+
+#navbar h2    { font-size: 145%; padding: 0; border: 0; margin: 0; }
+#navbar h2 a  { color: inherit;  }
+#navbar ul    { padding: 0; margin: 0; border: 0; display: block; list-style-type: none; }
+#navbar ul li { padding: 0; margin: 0; border: 0; display: block; list-style-type: none; font-size: 123%; padding-top: 6px;  }
+
+#navbar h2.current    { font-weight: bold; text-decoration: underline; }
+#navbar ul li.current { font-weight: bold; text-decoration: underline; }
+
+#navbar .navBody { height: 333px; }
+
+.mbTopBanner { background-color: #eff2f9; height: 7em; }
+#pageTitle { padding: 2em 0em 4em 4.5em; color: #c2c2c2; }
+
+#footer, div.container { padding-left: 4.5em; }
+
+#footer, #footer a { color: #7d8188; }
+
 .tdLabel .label, .wwlbl  .label {
 	background-color: #ffffff;
 	color: #000000;
@@ -17,15 +30,3 @@ body {
 	color: red;
 }
 
-.wwFormTable tr {
-	padding-bottom: 5px;
-}
-
-.page-header, .footer {
-	width: 100%;
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	padding-right: 10px;
-	padding-left: 10px;
-}
