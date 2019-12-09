@@ -1,0 +1,4 @@
+db.username=struts
+db.password=demo
+db.url=host.docker.internal
+db.default_schema=struts
