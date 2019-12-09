@@ -11,7 +11,6 @@ public class HibernateUtils {
         setPropIfEnv(configuration, "hibernate.connection.username", "db.username");
         setPropIfEnv(configuration, "hibernate.connection.password", "db.password");
         setPropIfEnv(configuration, "hibernate.connection.url", "db.url");
-        setPropIfEnv(configuration, "hibernate.default_schema", "db.default_schema");
 
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         return sessionFactory.openSession();
