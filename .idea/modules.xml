@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/struts2-showcase.iml" filepath="$PROJECT_DIR$/struts2-showcase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/struts-example.iml" filepath="$PROJECT_DIR$/.idea/struts-example.iml" />
     </modules>
   </component>
 </project>

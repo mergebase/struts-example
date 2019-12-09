@@ -1,12 +1,23 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="struts2-showcase:war exploded">
+  <artifact type="exploded-war" name="struts-example:war exploded">
     <output-path>$PROJECT_DIR$/target/struts2-showcase</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>struts-example</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="struts2-showcase" />
+          <element id="module-output" name="struts-example" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.2" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
+          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
+          <element id="library" level="project" name="Maven: org.bouncycastle:bcprov-jdk15on:1.46" />
           <element id="library" level="project" name="Maven: org.apache.struts:struts2-config-browser-plugin:2.5.8" />
           <element id="library" level="project" name="Maven: org.apache.struts:struts2-sitemesh-plugin:2.5.8" />
           <element id="library" level="project" name="Maven: org.apache.struts:struts2-tiles-plugin:2.5.8" />
@@ -48,7 +59,6 @@
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-jcl:2.7" />
           <element id="library" level="project" name="Maven: commons-logging:commons-logging:1.1.3" />
           <element id="library" level="project" name="Maven: org.apache.velocity:velocity:1.7" />
-          <element id="library" level="project" name="Maven: commons-collections:commons-collections:3.2.1" />
           <element id="library" level="project" name="Maven: commons-lang:commons-lang:2.4" />
           <element id="library" level="project" name="Maven: org.apache.velocity:velocity-tools:2.0" />
           <element id="library" level="project" name="Maven: commons-digester:commons-digester:2.1" />
@@ -58,16 +68,20 @@
           <element id="library" level="project" name="Maven: oro:oro:2.0.8" />
           <element id="library" level="project" name="Maven: sslext:sslext:1.2-0" />
           <element id="library" level="project" name="Maven: org.apache.struts:struts-core:1.3.8" />
-          <element id="library" level="project" name="Maven: antlr:antlr:2.7.2" />
           <element id="library" level="project" name="Maven: org.apache.struts:struts-taglib:1.3.8" />
           <element id="library" level="project" name="Maven: org.apache.struts:struts-tiles:1.3.8" />
           <element id="library" level="project" name="Maven: opensymphony:sitemesh:2.4.2" />
           <element id="library" level="project" name="Maven: uk.ltd.getahead:dwr:1.1.1" />
-          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.2" />
-          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-validator:5.1.3.Final" />
           <element id="library" level="project" name="Maven: org.jboss.logging:jboss-logging:3.1.3.GA" />
           <element id="library" level="project" name="Maven: com.fasterxml:classmate:1.0.0" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-core:3.6.3.Final" />
+          <element id="library" level="project" name="Maven: antlr:antlr:2.7.6" />
+          <element id="library" level="project" name="Maven: org.hibernate:hibernate-commons-annotations:3.2.0.Final" />
+          <element id="library" level="project" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.0-api:1.0.0.Final" />
+          <element id="library" level="project" name="Maven: javax.transaction:jta:1.1" />
+          <element id="library" level="project" name="Maven: org.postgresql:postgresql:42.2.4" />
+          <element id="library" level="project" name="Maven: javassist:javassist:3.12.1.GA" />
           <element id="library" level="project" name="Maven: org.apache.struts:struts2-core:2.5.8" />
           <element id="library" level="project" name="Maven: org.freemarker:freemarker:2.3.23" />
           <element id="library" level="project" name="Maven: ognl:ognl:3.1.12" />
@@ -77,7 +91,7 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/struts2-showcase/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="struts2-showcase/web/Web" />
+      <element id="javaee-facet-resources" facet="struts-example/web/Web" />
     </root>
   </artifact>
 </component>
