@@ -8,9 +8,9 @@ public class HibernateUtils {
 
     public static Session getSession() {
         final Configuration configuration = new Configuration().configure();
-        setPropIfEnv(configuration, "hibernate.connection.username", "db.username");
-        setPropIfEnv(configuration, "hibernate.connection.password", "db.password");
-        setPropIfEnv(configuration, "hibernate.connection.url", "db.url");
+        setPropIfEnv(configuration, "hibernate.connection.username", "db_username");
+        setPropIfEnv(configuration, "hibernate.connection.password", "db_password");
+        setPropIfEnv(configuration, "hibernate.connection.url", "db_url");
 
         SessionFactory sessionFactory = configuration.buildSessionFactory();
         return sessionFactory.openSession();
