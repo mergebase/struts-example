@@ -22,19 +22,18 @@ public class LoginDao extends AbstractDao {
         return User.class;
     }
 
-    public User getByUsernameAndPassword(String user, String pass)
-    {
+    public User getByUsernameAndPassword(String user, String pass) {
+        User result = null;
         User inStorageUser = (User) get(user);
-
-        if(inStorageUser != null) {
+        if (inStorageUser != null) {
             if (pass.equals(inStorageUser.getPassword())) {
-                return inStorageUser;
-            } else {
-                return null;
+                result = inStorageUser;
             }
-        } else {
-            return null;
         }
+        if (result == null) {
+            log.warn("Failed login " + user);
+        }
+        return result;
     }
 
     public void addUser(User user) {
